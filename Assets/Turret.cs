@@ -11,6 +11,9 @@ public class Turret : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
 
+    [SerializeField]
+    private GameObject parent;
+
     private readonly float bullet_speed = 10;
 
     // Start is called before the first frame update
@@ -29,9 +32,23 @@ public class Turret : MonoBehaviour
             //bulletHandler.transform.Rotate(Vector3.left * 90);
 
             Rigidbody bulletBody = bulletHandler.GetComponent<Rigidbody>();
-            bulletBody.AddForce(transform.forward * 1000);
+
+            Vector3 basev = Vector3.zero;
+            if (parent)
+            {
+                basev = parent.transform.root.GetComponent<Rigidbody>().velocity;
+            }
+
+            bulletBody.AddForce((bulletBody.transform.forward * 1000) + basev);
+            Debug.Log("BASEV: " + Vec2String(basev) + " " + Vec2String(bulletBody.transform.forward));
+
 
             Destroy(bulletHandler, 5.0f);
         }
+    }
+
+    string Vec2String(Vector3 vec)
+    {
+        return "x:" + vec.x + " y:" + vec.y + " z:" + vec.z + " ";
     }
 }
