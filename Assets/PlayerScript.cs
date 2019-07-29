@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
 
     private void CameraRotationCalculations()
     {
-        float yRotation = Input.GetAxis("Mouse Y");
+        float yRotation = Input.GetAxisRaw("Mouse Y");
         Vector3 rot = new Vector3(-yRotation, 0f, 0f) * lookSpeed;
 
         motor.VerticalCameraRotate(rot);
@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
 
     private void RotationCalcuations()
     {
-        float xRotation = Input.GetAxis("Mouse X");
+        float xRotation = Input.GetAxisRaw("Mouse X");
         Vector3 rot = new Vector3(0f, xRotation, 0f) * lookSpeed;
 
         motor.HorizontalCameraRotate(rot);

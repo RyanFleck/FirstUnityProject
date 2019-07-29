@@ -57,7 +57,7 @@ LightmapSettings:
     serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 256
+    m_AtlasSize: 1024
     m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -3124,6 +3124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emitter: {fileID: 1513083339}
   bullet: {fileID: 5605805366498885543, guid: 53fbe44abeb2c4c4183a1485e90dcaef, type: 3}
+  parent: {fileID: 0}
 --- !u!1 &2030609167
 GameObject:
   m_ObjectHideFlags: 0
